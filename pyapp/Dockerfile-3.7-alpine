@@ -9,5 +9,5 @@ RUN apk update && apk upgrade && \
 
 WORKDIR /app
 
-ENTRYPOINT ["bash", "-c", "git clone $GIT_REPO /app && pip install -r requirements.txt ; python $ENTRYPOINT"]
+ENTRYPOINT ["bash", "-c", "git clone $GIT_REPO /app && pip install -r requirements.txt ; $ENTRYPOINT"]
 
