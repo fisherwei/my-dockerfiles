@@ -10,7 +10,7 @@ RUN apk add --no-cache busybox fcgi autoconf gcc linux-headers libc-dev make && 
     docker-php-ext-enable redis
 RUN apk add --no-cache libpng libjpeg-turbo freetype libzip && \
     apk add --no-cache libpng-dev libjpeg-turbo-dev freetype-dev libzip-dev && \
-    docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/ && \
+    docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ && \
     docker-php-ext-install pdo pdo_mysql gd zip && \
     apk del libpng-dev libjpeg-turbo-dev freetype-dev libzip-dev
 RUN wget -O /usr/local/bin/php-fpm-healthcheck https://raw.githubusercontent.com/renatomefi/php-fpm-healthcheck/master/php-fpm-healthcheck && \
