@@ -8,6 +8,6 @@ RUN apk update && apk upgrade && \
 
 WORKDIR /mysqldump
 
-ENTRYPOINT ["sh", "-c", "mysqldump -u$mysql_user -p$mysql_pass --host=$mysql_host --databases $mysql_db --hex-blob 2>/mysqldump/$(date +'%Y%m%d_%H%M%S')_err.log | gzip > /mysqldump/$(date +'%Y%m%d_%H%M%S').sql.gz "]
+ENTRYPOINT ["sh", "-c", "mysqldump -u$mysql_user -p$mysql_pass --host=$mysql_host --databases $mysql_db --single-transaction --hex-blob 2>/mysqldump/$(date +'%Y%m%d_%H%M%S')_err.log | gzip > /mysqldump/$(date +'%Y%m%d_%H%M%S').sql.gz "]
 
 
